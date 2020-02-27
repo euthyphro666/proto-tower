@@ -12,5 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c22c1da48d607b42b118e1ff88a2444, type: 3}
   m_Name: DefaultSequence
   m_EditorClassIdentifier: 
-  Waves: 0
-  Enemy: 0
+  Waves:
+  - Time: 5
+    Groups:
+    - Count: 3
+      Type: 0
+    - Count: 3
+      Type: 1

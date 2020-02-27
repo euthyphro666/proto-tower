@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Rewired;
+using Sirenix.OdinInspector;
 
 public class MouseController : MonoBehaviour
 {
@@ -109,5 +110,22 @@ public class MouseController : MonoBehaviour
         }
         
         Debug.Log("Looks like we're placing more towers, hell yeah!");
+    }
+    
+    
+    [FoldoutGroup("Editor Play Testing", Expanded = false)]
+    [TitleGroup("Editor Play Testing/Select ClickMode", alignment: TitleAlignments.Centered)]
+    [HorizontalGroup("Editor Play Testing/Select ClickMode/split", 0.5f)]
+    [ShowInInspector, HideLabel]
+    private ClickMode editorClickMode;
+    
+    [FoldoutGroup("Editor Play Testing", Expanded = false)]
+    [TitleGroup("Editor Play Testing/Select ClickMode", alignment: TitleAlignments.Centered)]
+    [HorizontalGroup("Editor Play Testing/Select ClickMode/split", 0.5f)]
+    [Button(ButtonSizes.Large), GUIColor(0.4f, 0.8f, 1)]
+    private void SetClickMode()
+    {
+        Debug.Log($"Setting ClickMode to {editorClickMode}");
+        clickMode = editorClickMode;
     }
 }

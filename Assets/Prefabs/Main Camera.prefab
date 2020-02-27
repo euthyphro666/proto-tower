@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 343905341362399109}
-  ClickableLayers:
+  clickableLayers:
   - Tower
   - Enemy
   - UI

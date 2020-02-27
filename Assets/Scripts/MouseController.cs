@@ -1,17 +1,28 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using Rewired;
+using Sirenix.OdinInspector;
 
 public class MouseController : MonoBehaviour
 {
+    enum ClickMode
+    {
+        Select,
+        PlacingTowers
+    }
+    
     public Camera mainCamera;
-    public List<string> ClickableLayers;
+    public List<string> clickableLayers;
     
     
     private Player playerInput;
     private bool interactPressed;
+    private bool cancelPressed;
+    private bool modifierPressed;
     private Mouse mouse;
     private int clickLayer;
+    private ClickMode clickMode;
 
     private void Awake()
     {
@@ -28,10 +39,12 @@ public class MouseController : MonoBehaviour
                            "This means mouse selections won't work cause we can't raycast. hashtag frowny face emoji.");
         }
         
-        foreach (var layer in ClickableLayers)
+        foreach (var layer in clickableLayers)
         {
             clickLayer |= 1 << LayerMask.NameToLayer(layer);
         }
+        
+        clickMode = ClickMode.PlacingTowers;
     }
 
     // Update is called once per frame
@@ -41,20 +54,78 @@ public class MouseController : MonoBehaviour
     }
 
     private void GetInput() {
-        interactPressed = playerInput.GetButtonDown(ActionConstants.Interact);
+        interactPressed = playerInput.GetButtonDown(Constants.Actions.Interact);
+        cancelPressed = playerInput.GetButtonDown(Constants.Actions.Cancel);
+        modifierPressed = playerInput.GetButton(Constants.Actions.Modifier);
     }
 
     private void ProcessInput() {
+
+        if (cancelPressed)
+        {
+            // Todo remaining deselect tasks here
+            clickMode = ClickMode.Select;
+            Debug.Log($"Cancelling selection");
+            return;
+        }
+        
         // Process raycast to see what was clicked
         if(interactPressed) {
             var ray = mainCamera.ScreenPointToRay(mouse.screenPosition);
             
             if (Physics.Raycast(ray, out var hit, Mathf.Infinity, clickLayer)) {
                 var objectHit = hit.transform;
-                Debug.Log($"Clicked {objectHit.name}");
                 
                 //TODO perform some action
+                //TODO For when we get to the UI https://answers.unity.com/questions/1410936/how-to-prevent-a-ui-element-from-clicking-the-game.html
+
+                switch (clickMode)
+                {
+                    case ClickMode.Select:
+                        Debug.Log($"Selected {objectHit.name}");
+                        if (objectHit.gameObject.layer == LayerMask.NameToLayer(Constants.LayerNames.Tower))
+                        {
+                            Debug.Log($"Hey {objectHit.name} is a tower! We should display its stats or something.");
+                        }
+                        break;
+                    case ClickMode.PlacingTowers:
+                        HandlePlacingTower();
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException();
+                }
             }
         }
+    }
+
+    private void HandlePlacingTower()
+    {
+        Debug.Log("Placing tower!");
+        
+        if (!modifierPressed)
+        {
+            clickMode = ClickMode.Select;
+            Debug.Log("Aight no more towers to place!");
+            return;
+        }
+        
+        Debug.Log("Looks like we're placing more towers, hell yeah!");
+    }
+    
+    
+    [FoldoutGroup("Editor Play Testing", Expanded = false)]
+    [TitleGroup("Editor Play Testing/Select ClickMode", alignment: TitleAlignments.Centered)]
+    [HorizontalGroup("Editor Play Testing/Select ClickMode/split", 0.5f)]
+    [ShowInInspector, HideLabel]
+    private ClickMode editorClickMode;
+    
+    [FoldoutGroup("Editor Play Testing", Expanded = false)]
+    [TitleGroup("Editor Play Testing/Select ClickMode", alignment: TitleAlignments.Centered)]
+    [HorizontalGroup("Editor Play Testing/Select ClickMode/split", 0.5f)]
+    [Button(ButtonSizes.Large), GUIColor(0.4f, 0.8f, 1)]
+    private void SetClickMode()
+    {
+        Debug.Log($"Setting ClickMode to {editorClickMode}");
+        clickMode = editorClickMode;
     }
 }

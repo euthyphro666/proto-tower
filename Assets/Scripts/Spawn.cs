@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Waypoint : MonoBehaviour
+public class Spawn : MonoBehaviour
 {
     void OnDrawGizmos()
     {
-        Gizmos.DrawIcon(transform.position, "WaypointIcon.png", true);
+        Gizmos.DrawIcon(transform.position, "SpawnIcon.png", true);
     }
 }

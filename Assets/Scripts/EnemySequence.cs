@@ -13,6 +13,37 @@ public enum EnemyType
     Fast,
     Tanky,
 }
+[Serializable]
+public class EnemyTypePrefabs : UnitySerializedDictionary<EnemyType, GameObject> { }
+public abstract class UnitySerializedDictionary<TKey, TValue> : Dictionary<TKey, TValue>, ISerializationCallbackReceiver
+{
+    [SerializeField, HideInInspector]
+    private List<TKey> keyData = new List<TKey>();
+
+    [SerializeField, HideInInspector]
+    private List<TValue> valueData = new List<TValue>();
+
+    void ISerializationCallbackReceiver.OnAfterDeserialize()
+    {
+        this.Clear();
+        for (int i = 0; i < this.keyData.Count && i < this.valueData.Count; i++)
+        {
+            this[this.keyData[i]] = this.valueData[i];
+        }
+    }
+
+    void ISerializationCallbackReceiver.OnBeforeSerialize()
+    {
+        this.keyData.Clear();
+        this.valueData.Clear();
+
+        foreach (var item in this)
+        {
+            this.keyData.Add(item.Key);
+            this.valueData.Add(item.Value);
+        }
+    }
+}
 
 [CreateAssetMenu(fileName = "EnemySequence", menuName = "SomethingSpecific/EnemySequence", order = 1)]
 public class EnemySequence : ScriptableObject
@@ -51,13 +82,13 @@ public class EnemySequence : ScriptableObject
         /// <summary>
         /// The groups that make up the enemy.
         /// </summary>
-        [FoldoutGroup("The enemy groups in this wave.")]
+        [FoldoutGroup("Enemy Groups")]
         public EnemyGroup[] Groups;
     }
 
     /// <summary>
     /// The waves the sequence is composed of.
     /// </summary>
-    [FoldoutGroup("The enemy waves in this sequence.")]
+    [FoldoutGroup("Enemy Waves")]
     public EnemyWave[] Waves;
 }

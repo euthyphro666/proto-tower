@@ -445,6 +445,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Sequence: {fileID: 11400000, guid: 5a194c65b01bd0248875b462878a9325, type: 2}
+  EnemyPrefabs:
+    keyData: 010000000200000000000000
+    valueData:
+    - {fileID: 252390018982492229, guid: b8621d395f5782a479dfd0871e416c12, type: 3}
+    - {fileID: 1199554779561355011, guid: c0333cf8966373f469992ef8ae3a96e1, type: 3}
+    - {fileID: 3419002563702139732, guid: 0713f2671dff8c04589c06fab81eaec4, type: 3}
 --- !u!1 &327193341
 GameObject:
   m_ObjectHideFlags: 0

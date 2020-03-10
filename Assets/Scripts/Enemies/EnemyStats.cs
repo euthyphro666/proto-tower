@@ -15,7 +15,9 @@ public class EnemyStats : MonoBehaviour
     {
         Health = MaxHealth;
         //Creates the UI element and sets is as a child of the scene canvas
-        var canvas = transform.root.GetComponentInChildren<Canvas>();
+        // var canvas = transform.root.GetComponentInChildren<Canvas>();
+        var canvas = FindObjectOfType<Canvas>();
+        Debug.Log($"Canvas: {canvas}");
         var targetPos = Camera.main.WorldToScreenPoint(transform.position);
         uiInstance = Instantiate(UiPrefab, targetPos, Quaternion.identity, canvas.transform);
     }

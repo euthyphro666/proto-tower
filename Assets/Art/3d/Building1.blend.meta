@@ -3,7 +3,27 @@ guid: 46a67c52509d9b449b8bf3a18c7faf16
 ModelImporter:
   serializedVersion: 26
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Building1Base
+    second: {fileID: 2100000, guid: 0321ff10c585d1742b2752d862bebf6a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Building1Glass
+    second: {fileID: 2100000, guid: b6141922e7959d44c934ffeee448d77e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Building1Tower
+    second: {fileID: 2100000, guid: 52552fbf4cb8a7343ac52aa64c755a0e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BuildingDefault
+    second: {fileID: 2100000, guid: b6e78fe922622f14bba8de7fe521de20, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

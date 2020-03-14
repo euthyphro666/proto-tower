@@ -7,6 +7,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: BluePainted
+    second: {fileID: 2100000, guid: 03ddbfd3b6a8ea0419c3c53999ec468e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Building1Base
     second: {fileID: 2100000, guid: 0321ff10c585d1742b2752d862bebf6a, type: 2}
   - first:
@@ -24,6 +29,16 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: BuildingDefault
     second: {fileID: 2100000, guid: b6e78fe922622f14bba8de7fe521de20, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Concrete
+    second: {fileID: 2100000, guid: a898bc38c43d16044bc057bf7312c98f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WhitePainted
+    second: {fileID: 2100000, guid: 4a8d2061fc9c7544fabeeacc6303bf53, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

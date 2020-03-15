@@ -3,7 +3,27 @@ guid: c3286a61242722f47925c7921163ddd0
 ModelImporter:
   serializedVersion: 26
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TowerAOE
+    second: {fileID: 2100000, guid: dfe58489b390b4640b1840c3ada67088, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TowerNormal
+    second: {fileID: 2100000, guid: 1fee6516e3627e54c8e71434706c4c79, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TowerSniper
+    second: {fileID: 2100000, guid: e1c88e851e52d25428afbe363a18ec4e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TowerStun
+    second: {fileID: 2100000, guid: e453d7da8632fd845867b2ae9f9a02ab, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

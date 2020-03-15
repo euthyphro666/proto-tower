@@ -80,5 +80,5 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _GroundColor: {r: 0.122641504, g: 0.08272517, b: 0.11586326, a: 1}
+    - _GroundColor: {r: 0.16981131, g: 0.05847276, b: 0.15867741, a: 1}
     - _SkyTint: {r: 1, g: 0.6641655, b: 0, a: 1}

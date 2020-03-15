@@ -7,6 +7,21 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: BillboardPink
+    second: {fileID: 2100000, guid: aa88698ffe467d7489fc7e6e54c83367, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BillboardTeal
+    second: {fileID: 2100000, guid: 1ceb832fc304b694882e765d130beb1b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BillboardWhite
+    second: {fileID: 2100000, guid: f04c9070969392c4a91b0342bfbe800f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: BluePainted
     second: {fileID: 2100000, guid: 03ddbfd3b6a8ea0419c3c53999ec468e, type: 2}
   - first:

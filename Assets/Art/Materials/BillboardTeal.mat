@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Ship3EngineGlow
+  m_Name: BillboardTeal
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: _EMISSION
   m_LightmapFlags: 1
@@ -73,5 +73,5 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.514151, g: 0.7420801, b: 1, a: 1}
-    - _EmissionColor: {r: 0, g: 0.12359524, b: 1, a: 0}
+    - _Color: {r: 0.45403165, g: 0.52473474, b: 0.5377358, a: 1}
+    - _EmissionColor: {r: 0.7877358, g: 0.97257626, b: 1, a: 0}
